@@ -1,3 +1,8 @@
+# TODO: 
+- save config into weights
+- add core.py to make prediction
+- add auto data generator
+
 # How to train?
 ```
 CUDA_VISIBLE_DEVICES=2 python lioneldb/train.py lioneldb/experiments/seg_detector/ic15_resnet50_deform_thre.yaml -g 1 --batch_size=4
