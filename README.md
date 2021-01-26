@@ -1,7 +1,8 @@
 # TODO: 
-- save config into weights
-- add core.py to make prediction
+- add core.py to make prediction -> DONE
 - add auto data generator
+- refactor config file, only use one config file for prediction purpose
+- add Dockerfile
 
 # How to train?
 ```
