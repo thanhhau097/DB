@@ -5,6 +5,7 @@
 - add Dockerfile
 
 # How to train?
+example config file: ic15_resnet50_deform_thre.yaml
 ```
 CUDA_VISIBLE_DEVICES=2 python lioneldb/train.py lioneldb/experiments/seg_detector/ic15_resnet50_deform_thre.yaml -g 1 --batch_size=4
 ```
