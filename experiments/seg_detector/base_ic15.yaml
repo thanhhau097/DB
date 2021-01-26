@@ -4,7 +4,7 @@ package:
     - 'decoders.seg_detector_loss'
 define:
   - name: train_data
-    class: ImageDataset
+    # class: ImageDataset
     data_dir:
         - './datasets/icdar2015/'
     data_list:
@@ -28,7 +28,7 @@ define:
           superfluous: ['polygons', 'filename', 'shape', 'ignore_tags', 'is_training']
 
   - name: validate_data
-    class: ImageDataset
+    # class: ImageDataset
     data_dir:
         - './datasets/icdar2015/'
     data_list:
