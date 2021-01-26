@@ -1,3 +1,8 @@
+# How to train?
+```
+CUDA_VISIBLE_DEVICES=2 python lioneldb/train.py lioneldb/experiments/seg_detector/ic15_resnet50_deform_thre.yaml -g 1 --batch_size=4
+```
+
 ## News
 * DB is included in [OpenCV](https://github.com/opencv/opencv/blob/master/doc/tutorials/dnn/dnn_text_spotting/dnn_text_spotting.markdown)
 * DB is included in [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
