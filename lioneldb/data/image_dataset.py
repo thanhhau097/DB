@@ -81,7 +81,11 @@ class ImageDataset(data.Dataset, Configurable):
             index = index % self.num_samples
         data = {}
         image_path = self.image_paths[index]
-        img = cv2.imread(image_path, cv2.IMREAD_COLOR).astype('float32')
+        # import pdb; pdb.set_trace()
+        try:
+            img = cv2.imread(image_path, cv2.IMREAD_COLOR).astype('float32')
+        except:
+            raise ValueError('Cannot find {}'.format(image_path))
         if self.is_training:
             data['filename'] = image_path
             data['data_id'] = image_path

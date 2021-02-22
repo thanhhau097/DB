@@ -1,15 +1,18 @@
 # TODO: 
 - add core.py to make prediction -> DONE
-- add auto data generator
+- add auto data generator: same structure with input files
 - refactor config file, only use one config file for prediction purpose
 - add Dockerfile
 
 # How to train?
 example config file: ic15_resnet50_deform_thre.yaml
 ```
-CUDA_VISIBLE_DEVICES=2 python lioneldb/train.py lioneldb/experiments/seg_detector/ic15_resnet50_deform_thre.yaml -g 1 --batch_size=4
+CUDA_VISIBLE_DEVICES=1 python lioneldb/train.py lioneldb/experiments/seg_detector/document.yaml -g 1 --batch_size=4 --num_workers=8
 ```
 
+loss = 0.5 -> 1.0
+
+epoch 20: loss = 1.x -> 2.x
 ## News
 * DB is included in [OpenCV](https://github.com/opencv/opencv/blob/master/doc/tutorials/dnn/dnn_text_spotting/dnn_text_spotting.markdown)
 * DB is included in [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
