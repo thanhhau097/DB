@@ -4,8 +4,8 @@ import os
 import torch
 import cv2
 import numpy as np
-from .experiment import Structure, Experiment
-from .concern.config import Configurable, Config
+from lioneldb.experiment import Structure, Experiment
+from lioneldb.concern.config import Configurable, Config
 import math
 
 
@@ -96,3 +96,21 @@ class LionelDB:
             output = self.structure.representer.represent(batch, pred, is_output_polygon=self.args['polygon']) 
             
         return output  # batch_boxes, batch_scores = output
+
+    def process_and_visualize(self, image_path):
+        batch_boxes, batch_scores = self.process(image_path)
+        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+        for box in batch_boxes[0]:
+            image = cv2.polylines(image, np.int32([box]), True, (255,0,0), 2)
+
+        return image
+
+
+if __name__ == '__main__':
+    weights_path = '/mnt/ai_filestore/home/lionel/research/DB/outputs/workspace/DB/SegDetectorModel-seg_detector/deformable_resnet50/L1BalanceCELoss/model/model_epoch_470_minibatch_166850'
+    config_path = '/mnt/ai_filestore/home/lionel/research/DB/lioneldb/experiments/seg_detector/document.yaml'
+    image_path = '/mnt/ai_filestore/home/lionel/research/DB/datasets/projects/invoice_horizontal_2/images/0785_070_22.png'
+
+    model = LionelDB(weights_path, config_path, thresh=0.5, image_short_side=512, polygon=False)
+    image = model.process_and_visualize(image_path)
+    cv2.imwrite('./datasets/debug.png', image)
