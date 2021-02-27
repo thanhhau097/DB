@@ -107,10 +107,10 @@ class LionelDB:
 
 
 if __name__ == '__main__':
-    weights_path = '/mnt/ai_filestore/home/lionel/research/DB/outputs/workspace/DB/SegDetectorModel-seg_detector/deformable_resnet50/L1BalanceCELoss/model/model_epoch_470_minibatch_166850'
+    weights_path = '/mnt/ai_filestore/home/lionel/research/DB/outputs/workspace/DB/SegDetectorModel-seg_detector/deformable_resnet50/L1BalanceCELoss/model/model_epoch_490_minibatch_173950'
     config_path = '/mnt/ai_filestore/home/lionel/research/DB/lioneldb/experiments/seg_detector/document.yaml'
-    image_path = '/mnt/ai_filestore/home/lionel/research/DB/datasets/projects/invoice_horizontal_2/images/0785_070_22.png'
+    image_path = '/mnt/ai_filestore/home/lionel/research/DB/datasets/projects_processed/test_images/IMG_1276.JPG'
 
-    model = LionelDB(weights_path, config_path, thresh=0.5, image_short_side=512, polygon=False)
+    model = LionelDB(weights_path, config_path, thresh=0.2, box_thresh=0.2, image_short_side=1536, polygon=False)
     image = model.process_and_visualize(image_path)
     cv2.imwrite('./datasets/debug.png', image)
