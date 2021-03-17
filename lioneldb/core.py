@@ -107,10 +107,13 @@ class LionelDB:
 
 
 if __name__ == '__main__':
-    weights_path = '/mnt/ai_filestore/home/lionel/research/DB/outputs/workspace/DB/SegDetectorModel-seg_detector/deformable_resnet50/L1BalanceCELoss/model/model_epoch_490_minibatch_173950'
-    config_path = '/mnt/ai_filestore/home/lionel/research/DB/lioneldb/experiments/seg_detector/document.yaml'
-    image_path = '/mnt/ai_filestore/home/lionel/research/DB/datasets/projects_processed/test_images/IMG_1276.JPG'
+    from tqdm import tqdm 
 
+    weights_path = '/mnt/ai_filestore/home/lionel/research/DB/outputs/workspace/DB/SegDetectorModel-seg_detector/deformable_resnet50/L1BalanceCELoss/model/model_epoch_1100_minibatch_390500'
+    config_path = '/mnt/ai_filestore/home/lionel/research/DB/lioneldb/experiments/seg_detector/document.yaml'
     model = LionelDB(weights_path, config_path, thresh=0.2, box_thresh=0.2, image_short_side=1536, polygon=False)
-    image = model.process_and_visualize(image_path)
-    cv2.imwrite('./datasets/debug.png', image)
+
+    for i, image_path in tqdm(enumerate(os.listdir('./datasets/metlife_test'))):
+        path = os.path.join('./datasets/metlife_test', image_path)
+        image = model.process_and_visualize(path)
+        cv2.imwrite('./datasets/debugs/{}.png'.format(i), image)

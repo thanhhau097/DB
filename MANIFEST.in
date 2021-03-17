@@ -1,0 +1,4 @@
+include lioneldb/assets/ops/dcn/src/deform_conv_cuda_kernel.cu
+include lioneldb/assets/ops/dcn/src/deform_conv_cuda.cpp
+include lioneldb/assets/ops/dcn/src/deform_pool_cuda_kernel.cu
+include lioneldb/assets/ops/dcn/src/deform_pool_cuda.cpp

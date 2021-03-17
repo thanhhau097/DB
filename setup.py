@@ -18,6 +18,7 @@ setup(
     name='lioneldb',
     packages=find_packages(),
     #package_dir={'lionelocr': ''},
+    # package_data={'': ['lioneldb/assets/*']},
     include_package_data=True,
     # entry_points={"console_scripts": ["paddleocr= paddleocr.paddleocr:main"]},
     version='0.0.1',
