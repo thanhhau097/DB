@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 import torch
 
-import structure.model
+from lioneldb.structure import model as structure_model
 from lioneldb.concern.config import Configurable, State
 
 
@@ -17,10 +17,10 @@ class Builder(Configurable):
 
     @property
     def model_name(self):
-        return self.model + '-' + getattr(structure.model, self.model).model_name(self.model_args)
+        return self.model + '-' + getattr(structure_model, self.model).model_name(self.model_args)
 
     def build(self, device, distributed=False, local_rank: int = 0):
-        Model = getattr(structure.model,self.model)
+        Model = getattr(structure_model,self.model)
         model = Model(self.model_args, device,
                       distributed=distributed, local_rank=local_rank)
         return model

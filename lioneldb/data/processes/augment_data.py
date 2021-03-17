@@ -3,7 +3,7 @@ import numpy as np
 
 from lioneldb.concern.config import State
 from .data_process import DataProcess
-from data.augmenter import AugmenterBuilder
+from lioneldb.data.augmenter import AugmenterBuilder
 import cv2
 import math
 

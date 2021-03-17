@@ -32,7 +32,7 @@ def parallelize(model, distributed, local_rank):
 class SegDetectorModel(nn.Module):
     def __init__(self, args, device, distributed: bool = False, local_rank: int = 0):
         super(SegDetectorModel, self).__init__()
-        from decoders.seg_detector_loss import SegDetectorLossBuilder
+        from lioneldb.decoders.seg_detector_loss import SegDetectorLossBuilder
 
         self.model = BasicModel(args)
         # for loading models

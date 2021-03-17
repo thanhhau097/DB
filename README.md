@@ -1,5 +1,5 @@
 # TODO: 
-- add core.py to make prediction -> DONE
+- add core.py to make prediction -> TODO: fix config file, to predict when install with pip
 - add auto data generator: same structure with input files
 - refactor config file, only use one config file for prediction purpose
 - add Dockerfile
