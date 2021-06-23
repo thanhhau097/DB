@@ -17,10 +17,8 @@ def readme():
 setup(
     name='lioneldb',
     packages=find_packages(exclude=('datasets',)),
-    #package_dir={'lionelocr': ''},
-    # package_data={'': ['lioneldb/assets/*']},
-    # include_package_data=True,
-    # entry_points={"console_scripts": ["paddleocr= paddleocr.paddleocr:main"]},
+    package_data={'': ['lioneldb/assets/*']},
+    include_package_data=True,
     version='0.0.1',
     install_requires=requirements,
     license='Apache License 2.0',
